@@ -29,13 +29,14 @@ public class PhysicalPerson extends Person {
 		Double tax = 0.0;
 				
 		if (annualIncome < 20000.00) {
-			tax += (annualIncome * 0.15);
+			tax += (annualIncome * 0.15) - (healthExpenses * 0.5);
 			return tax;
 		}
 		else {
-			tax += (annualIncome * 0.25);
+			tax += (annualIncome * 0.25) - (healthExpenses * 0.5);
 			return tax;
-		}
+		}		
+		
 	}
 
 
