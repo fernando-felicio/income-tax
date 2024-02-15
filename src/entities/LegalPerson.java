@@ -22,5 +22,20 @@ public class LegalPerson extends Person {
 		this.numberOfEmployees = numberOfEmployees;
 	}
 
-	public Double taxRules();
+	@Override
+	public Double taxRules() {
+		
+		Double tax = 0.0;
+		
+		if (numberOfEmployees > 10) {
+			tax += (annualIncome * 0.14);
+			return tax;
+		}
+		else {
+			tax += (annualIncome * 0.16);
+			return tax;
+		}
+	}
+
+	
 }
