@@ -1,36 +1,17 @@
 package entities;
+import entities.enums.Status;
 
-public class PhysicalPerson {
-	
-	private String name;
-	private Double annualIncome;
+public class PhysicalPerson extends Person {
+		
 	private Double healthExpenses;
 	
 	public PhysicalPerson() {
-		super();		
-	}
-	
-	public PhysicalPerson(String name, Double annualIncome, Double healthExpenses) {
 		super();
-		this.name = name;
-		this.annualIncome = annualIncome;
-		this.healthExpenses = healthExpenses;
 	}
 	
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Double getAnnualIncome() {
-		return annualIncome;
-	}
-
-	public void setAnnualIncome(Double annualIncome) {
-		this.annualIncome = annualIncome;
+	public PhysicalPerson(String name, Double annualIncome, Status status, Double heatlExpenses) {
+		super(name, annualIncome, status);
+		this.healthExpenses = heatlExpenses;
 	}
 
 	public Double getHealthExpenses() {
@@ -42,5 +23,21 @@ public class PhysicalPerson {
 	}
 	
 	
+	@Override
+	public Double taxRules() {
+		
+		Double tax = 0.0;
+				
+		if (annualIncome < 20000.00) {
+			tax += (annualIncome * 0.15);
+			return tax;
+		}
+		else {
+			tax += (annualIncome * 0.25);
+			return tax;
+		}
+	}
 
+
+	
 }
